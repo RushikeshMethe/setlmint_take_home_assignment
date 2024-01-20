@@ -1,0 +1,38 @@
+	Problem Statement - There are n people entering and exiting a gym. For each person i, where i {1,...,n}, the person enters at time ai and exits at  ∈ time bi (assume that bi> 	ai 	for all i), and all the ai,bi are distinct. At the beginning of the day, the lights in the 	room are switched off, and the first person who enters the room switches them on. In 	order to conserve electricity, if person i leaves the gym at time biand there is no one else present in the gym at time bi,then person i will switch the lights off. The next person 	to enter will then switch them on again. Given thevalues (a1,b1), (a2,b2),...(an,bn), we want to find the number of times the lights get switched on.
+	Design an efficient algorithm, and prove the correctness and running time of each algorithm
+
+Answer - Algorithm
+        Steps 
+	1) Input:
+		events: An array of pairs representing entry and exit times.
+		
+
+	2) Create Array:
+		 Create an empty array called numbers.
+		
+	3) Populate Array:
+		For each pair [entry, exit] in events, add two elements to numbers:
+		{ time: entry, action: 'enter' }
+		{ time: exit, action: 'exit' }
+
+	4)Sort Array:
+		Sort the numbers array based on time.
+		If times are equal, ensure that 'exit' events come before 'enter' events.
+		
+
+	5)Count Lights:
+		Initialize variables:
+		x to 0 (represents the number of people currently inside the gym).
+		count to 0 (represents the number of times the lights are switched on).
+
+	6) Iterate Through Sorted Array:
+		For each element in numbers:
+		If the element is an entry time:
+		If x is 0, increment count.
+		Increment x.
+		If the element is an exit time, decrement x.
+
+	7)Output:
+		Display the value of count as the number of times the lights get switched on.
+
+Implementation of Algorithm : Task2.java file
